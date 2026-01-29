@@ -1,14 +1,15 @@
 from bs4 import BeautifulSoup
 from quantulum3 import parser
-from utils import get_logger
-from dto import MostVisitedMuseumList
+from museum_attendance_common.utils import get_logger
+from museum_attendance_common.config import Settings
+from dto import MostVisitedMuseumList, Museum, City
 from service.extractor import MuseumListPageExtractor, MuseumInstancePageExtractor, CityPageExtractor
 from service.api import wikipedia_service
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from config.settings import settings
 
 
 logger = get_logger(__name__)
+settings = Settings()
 
 class DataCollectionService:
     @staticmethod
@@ -31,7 +32,7 @@ class DataCollectionService:
         return MostVisitedMuseumList(wikipedia_museum_instance_list=data)
     
     @staticmethod
-    def fetch_museum_details(museum):
+    def fetch_museum_details(museum: Museum) -> Museum:
         try:
             logger.info(f"Collecting data for museum: {museum.name}")
             museum_instance_html_content = wikipedia_service.get_page_html(museum.wikipedia_museum_details_page_title)
@@ -43,7 +44,7 @@ class DataCollectionService:
             return museum
 
     @staticmethod
-    def fetch_city_details(museum):
+    def fetch_city_details(museum: Museum) -> Museum:
         try:
             logger.info(f"Collecting data for city: {museum.city}")
             city_html_content = wikipedia_service.get_page_html(museum.wikipedia_city_details_page_title)

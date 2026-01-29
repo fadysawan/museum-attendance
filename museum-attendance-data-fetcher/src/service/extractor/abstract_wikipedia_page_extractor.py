@@ -16,7 +16,7 @@ class AbstractWikipediaPageExtractor(ABC, Generic[T]):
         return BeautifulSoup(self._html_content, 'html.parser')
     
     @abstractmethod
-    def extract_data(self) -> dict:
+    def extract_data(self, soup: BeautifulSoup) -> dict:
         """Abstract method to extract data from the HTML content."""
         pass
 
@@ -26,7 +26,7 @@ class AbstractWikipediaPageExtractor(ABC, Generic[T]):
         return self.extract_data(soup)
     
     @abstractmethod
-    def to_dto(self) -> T:
+    def to_dto(self) -> T | list[T]:
         """Convert the extracted data to a DTO of type T."""
         pass
 

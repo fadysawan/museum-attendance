@@ -17,5 +17,46 @@ services:
       timeout: 5s
       retries: 5
 
+
+  data-fetcher:
+    build:
+      context: .
+      dockerfile: museum-attendance-data-fetcher/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Database Configuration
+      DB_HOST: db
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USER: ${POSTGRES_USER:-IL_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      DB_NAME: ${POSTGRES_DB:-museum_attendance}
+      
+      # Database Connection Pool Settings
+      DB_POOL_SIZE: ${DB_POOL_SIZE:-1}
+      DB_MAX_OVERFLOW: ${DB_MAX_OVERFLOW:-0}
+      DB_POOL_TIMEOUT: ${DB_POOL_TIMEOUT:-30}
+      DB_POOL_RECYCLE: ${DB_POOL_RECYCLE:-3600}
+      
+      # Data Collection Settings
+      KEEP_HTML_FILES: ${KEEP_HTML_FILES:-false}
+      
+      # Rate Limiting for Wikipedia API
+      RATE_LIMIT_CALLS: ${RATE_LIMIT_CALLS:-2}
+      RATE_LIMIT_PERIOD: ${RATE_LIMIT_PERIOD:-1}
+      
+      # Multithreading Settings
+      MAX_WORKERS: ${MAX_WORKERS:-5}
+      
+      # Wikipedia API Credentials
+      WIKIPEDIA_AUTH_URL: ${WIKIPEDIA_AUTH_URL:-https://en.wikipedia.org/w/rest.php/oauth2/access_token}
+      WIKIPEDIA_API_URL: ${WIKIPEDIA_API_URL:-https://en.wikipedia.org/api/rest_v1/}
+      WIKIPEDIA_CLIENT_ID: ${WIKIPEDIA_CLIENT_ID}
+      WIKIPEDIA_CLIENT_SECRET: ${WIKIPEDIA_CLIENT_SECRET}
+      
+      # Application Settings
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+
 volumes:
   db_data:
