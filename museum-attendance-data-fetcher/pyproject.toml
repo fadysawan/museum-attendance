@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "museum-attendance-data-fetcher"
+description = "This project will connect to wikipedia API to fetch the museum attendance data and persist them in the database"
+version = "0.1.0"
+authors = [
+  { name="Fady Sawan", email="fady.sawan@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.32.5",
+    "sqlalchemy==2.0.46",
+    "psycopg2-binary==2.9.11",
+    "pydantic-settings==2.12.0",
+    "quantulum3==0.9.1",
+    "beautifulsoup4==4.14.3",
+    "setuptools==80.10.2",
+    "ratelimit==2.2.1"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

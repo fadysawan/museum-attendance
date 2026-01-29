@@ -1,0 +1,146 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.6">
+  <diagram name="Page-1" id="XFw_iikqQPu2AcKgfVO0">
+    <mxGraphModel dx="1088" dy="1693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-3" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-43" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-42" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="405.5" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-5" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="RVrcZDoFhOlc9-ukKN5L-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-45" connectable="0" parent="RVrcZDoFhOlc9-ukKN5L-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="GET /page/html/{title}&amp;nbsp;&lt;br&gt;master page" vertex="1">
+          <mxGeometry relative="1" x="-0.5174" y="-7" as="geometry">
+            <mxPoint x="44" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-7" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-2" parent="1" style="html=1;dashed=0;whiteSpace=wrap;" value="Call the Wikipedia API to get the page of &quot;list of most visited museums&quot; as HTML" vertex="1">
+          <mxGeometry height="50" width="163" x="344" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-4" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Miu_Black_Social-2261/wikipedia-1134.svg" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="670" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-9" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-6" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Parse the HTML and fetch the table containing the list of museums" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-11" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-8" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Fetch the list of museums in a DTO" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-13" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-10" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Loop through the list of museums&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-15" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-21" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="RVrcZDoFhOlc9-ukKN5L-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-46" connectable="0" parent="RVrcZDoFhOlc9-ukKN5L-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="GET /page/html/{title}&amp;nbsp;&lt;br&gt;museum page" vertex="1">
+          <mxGeometry relative="1" x="-0.8997" as="geometry">
+            <mxPoint x="59" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-12" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Call the Wikipedia API to fetch the page of the museum details" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="745" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-17" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-14" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Update the museum object attributes with the details fetched from the page" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="885" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-19" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-20" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="RVrcZDoFhOlc9-ukKN5L-4" value="GET /page/html/{title}&amp;nbsp;&lt;br&gt;city page">
+          <mxGeometry relative="1" x="-0.7546" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-16" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Call the Wikipedia API to fetch the page of the city where the museum is located" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="1025" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-27" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-26" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-28" connectable="0" parent="RVrcZDoFhOlc9-ukKN5L-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="List iteraction completed?" vertex="1">
+          <mxGeometry relative="1" x="-0.1429" y="6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-18" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Update the museum object location attribute with the population of the city" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="1165" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-29" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="RVrcZDoFhOlc9-ukKN5L-10" value="No">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="1335" />
+              <mxPoint x="180" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-31" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-30" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-26" parent="1" style="rhombus;whiteSpace=wrap;html=1;dashed=0;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="385.5" y="1295" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-33" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-32" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-30" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Convert the DTO into database entities&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="1465" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-35" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-34" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-32" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Persist the entities into the database" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="1605" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-37" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="RVrcZDoFhOlc9-ukKN5L-36" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-34" parent="1" style="whiteSpace=wrap;html=1;dashed=0;" value="Update the import_job_log table to mark the result of the execution" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="1745" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-36" parent="1" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="410" y="1890" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-38" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="80" width="60" x="660" y="1215" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-39" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="RVrcZDoFhOlc9-ukKN5L-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-40" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="RVrcZDoFhOlc9-ukKN5L-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-42" parent="1" style="whiteSpace=wrap;html=1;strokeWidth=2;" value="Insert a new record for the execution in the import_job_log" vertex="1">
+          <mxGeometry height="60" width="120" x="365.5" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="RVrcZDoFhOlc9-ukKN5L-44" edge="1" parent="1" source="RVrcZDoFhOlc9-ukKN5L-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="RVrcZDoFhOlc9-ukKN5L-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
