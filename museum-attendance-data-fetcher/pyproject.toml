@@ -17,7 +17,7 @@ dependencies = [
     "beautifulsoup4==4.14.3",
     "setuptools==80.10.2",
     "ratelimit==2.2.1",
-    "museum-attendance-common @ file:///${PROJECT_ROOT}/../museum-attendance-common"
+    "museum-attendance-common"
 ]
 
 [project.optional-dependencies]

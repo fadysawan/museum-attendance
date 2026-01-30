@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "museum-attendance-jupyter"
+description = "Jupyter notebook environment for museum attendance data analysis and visualization"
+version = "0.1.0"
+authors = [
+  { name="Fady Sawan", email="fady.sawan@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "museum-attendance-common",
+    "jupyter>=1.0.0",
+    "jupyterlab>=4.0.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "ipywidgets>=8.1.0",
+    "scikit-learn>=1.4.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.12.0",
+    "ruff>=0.10.0"
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120

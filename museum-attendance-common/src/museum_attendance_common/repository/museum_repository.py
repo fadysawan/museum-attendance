@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy.exc import SQLAlchemyError
 from museum_attendance_common.model import Museum, City
 from museum_attendance_common.utils import get_logger
@@ -36,3 +36,13 @@ class MuseumRepository:
         except SQLAlchemyError as e:
             logger.error(f"Error persisting museum '{name}': {str(e)}")
             raise DatabaseError(f"Failed to persist museum: {str(e)}", entity_type="Museum", entity_id=name, operation="persist") from e
+        
+    def get_museums(self, include_attributes: bool = False) -> list[Museum]:
+        try:
+            query = self.session.query(Museum).options(joinedload(Museum.city))
+            if include_attributes:
+                query = query.options(joinedload(Museum.museum_attributes))
+            return query.all()
+        except SQLAlchemyError as e:
+            logger.error(f"Error querying museums: {str(e)}")
+            raise DatabaseError(f"Failed to query museums: {str(e)}", entity_type="Museum") from e

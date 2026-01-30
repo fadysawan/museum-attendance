@@ -12,7 +12,7 @@ setup_logging(log_level=settings.log_level)
 logger = get_logger(__name__)
 
 
-def main() -> None:
+def export() -> None:
     """Main application entry point."""
     logger.info("Starting museum attendance data fetcher...")
     
@@ -26,7 +26,7 @@ def main() -> None:
         }
 
         import_log = import_log_repository.start_job(ImportStatus.IN_PROGRESS, result=result)
-        
+        session.commit()
         inserted_countries = 0
         updated_countries = 0
         inserted_cities = 0
@@ -103,4 +103,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    export()

@@ -17,6 +17,14 @@ services:
       timeout: 5s
       retries: 5
 
+  flyway:
+    image: flyway/flyway:10
+    command: -url=jdbc:postgresql://db:5432/${POSTGRES_DB:-museum_attendance} -user=${POSTGRES_USER:-IL_USER} -password=${POSTGRES_PASSWORD:-postgres} -connectRetries=60 migrate
+    volumes:
+      - ./sql:/flyway/sql
+    depends_on:
+      db:
+        condition: service_healthy
 
   data-fetcher:
     build:
@@ -25,6 +33,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      flyway:
+        condition: service_completed_successfully
     environment:
       # Database Configuration
       DB_HOST: db
@@ -43,7 +53,7 @@ services:
       KEEP_HTML_FILES: ${KEEP_HTML_FILES:-false}
       
       # Rate Limiting for Wikipedia API
-      RATE_LIMIT_CALLS: ${RATE_LIMIT_CALLS:-2}
+      RATE_LIMIT_CALLS: ${RATE_LIMIT_CALLS:-10}
       RATE_LIMIT_PERIOD: ${RATE_LIMIT_PERIOD:-1}
       
       # Multithreading Settings
@@ -57,6 +67,56 @@ services:
       
       # Application Settings
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: museum-attendance-jupyter/Dockerfile
+    ports:
+      - "8888:8888"
+    depends_on:
+      db:
+        condition: service_healthy
+      data-fetcher:
+        condition: service_completed_successfully
+      flyway:
+        condition: service_completed_successfully
+    environment:
+      # Database Configuration
+      DB_HOST: db
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USER: ${POSTGRES_USER:-IL_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      DB_NAME: ${POSTGRES_DB:-museum_attendance}
+      
+      # Database Connection Pool Settings
+      DB_POOL_SIZE: ${DB_POOL_SIZE:-5}
+      DB_MAX_OVERFLOW: ${DB_MAX_OVERFLOW:-10}
+      DB_POOL_TIMEOUT: ${DB_POOL_TIMEOUT:-30}
+      DB_POOL_RECYCLE: ${DB_POOL_RECYCLE:-3600}
+      
+      # Rate Limiting for Wikipedia API
+      RATE_LIMIT_CALLS: ${RATE_LIMIT_CALLS:-100}
+      RATE_LIMIT_PERIOD: ${RATE_LIMIT_PERIOD:-1}
+
+      # Multithreading Settings
+      MAX_WORKERS: ${MAX_WORKERS:-5}
+      
+      # Wikipedia API Credentials
+      WIKIPEDIA_AUTH_URL: ${WIKIPEDIA_AUTH_URL:-https://en.wikipedia.org/w/rest.php/oauth2/access_token}
+      WIKIPEDIA_API_URL: ${WIKIPEDIA_API_URL:-https://en.wikipedia.org/api/rest_v1/}
+      WIKIPEDIA_CLIENT_ID: ${WIKIPEDIA_CLIENT_ID}
+      WIKIPEDIA_CLIENT_SECRET: ${WIKIPEDIA_CLIENT_SECRET}
+      
+      # Application Settings
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      
+      # Jupyter Settings
+      JUPYTER_ENABLE_LAB: "yes"
+    volumes:
+      - ./museum-attendance-jupyter/notebooks:/app/notebooks
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+
 
 volumes:
   db_data:
